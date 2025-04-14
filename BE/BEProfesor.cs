@@ -12,6 +12,18 @@ namespace BE
         public BEProfesor(string pIdProfesor,string pNombre, string pApellido, string pEmail, string pPassword) 
         { 
             IdProfesor = int.Parse(pIdProfesor);
+            Nombre = pNombre;
+            Apellido = pApellido;
+            Email = pEmail;
+            Password = pPassword;
+        }
+
+        public BEProfesor( string pNombre, string pApellido, string pEmail, string pPassword)
+        {
+            Nombre = pNombre;
+            Apellido = pApellido;
+            Email = pEmail;
+            Password = pPassword;
         }
     }
 }
