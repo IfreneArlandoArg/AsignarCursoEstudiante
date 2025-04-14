@@ -9,29 +9,32 @@ namespace BLL
 {
     public class BLLProfesor : IABML<BEProfesor>
     {
+        DALProfesor dALProfesor = new DALProfesor();
+        
         public void Alta(BEProfesor pT)
         {
-            throw new NotImplementedException();
+            dALProfesor.Alta(pT);
         }
 
         public void AltaCurso(BEProfesor pT, BECurso pC)
         {
-            throw new NotImplementedException();
+            dALProfesor.AltaCurso(pT, pC); 
         }
 
         public void Baja(BEProfesor pT)
         {
-            throw new NotImplementedException();
+            dALProfesor.Baja(pT);
         }
 
         public List<BEProfesor> Listar()
         {
-            throw new NotImplementedException();
+           return dALProfesor.Listar();
         }
 
-        public List<BEProfesor> ListarCursos(BEProfesor pT)
+        
+        public List<BECurso> ListarCursos(BEProfesor pT)
         {
-            throw new NotImplementedException();
+            return lis
         }
 
         public void Modificar(BEProfesor pT)
