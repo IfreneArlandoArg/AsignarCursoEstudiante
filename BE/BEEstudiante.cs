@@ -8,6 +8,7 @@ namespace BE
 {
     public class BEEstudiante : Usuario
     {
+        public int IdEstudiante { get; set; }
         public BEEstudiante(string pIdEstudiante, string pNombre, string pApellido, string pEmail, string pPassword) 
         { 
             IdEstudiante = int.Parse(pIdEstudiante);

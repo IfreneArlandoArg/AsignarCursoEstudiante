@@ -19,6 +19,9 @@ namespace GUI
             InitializeComponent();
         }
 
+        
+
+
         BLLEstudiante bllEstudiante = new BLLEstudiante();
         public BEEstudiante EstudianteLogeado { get; set; }
         public bool EstudianteRegistrado { get; set; }
