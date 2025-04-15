@@ -94,7 +94,7 @@ namespace DAL
 
         public List<BECurso> ListarCursos(BEProfesor pT)
         {
-            throw new NotImplementedException();
+            
         }
 
 
