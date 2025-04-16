@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DALCurso.cs" />
     <Compile Include="DALEstudiante.cs" />
+    <Compile Include="DALProfesor.cs" />
     <Compile Include="IABML.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

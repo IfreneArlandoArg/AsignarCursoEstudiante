@@ -34,12 +34,12 @@ namespace BLL
         
         public List<BECurso> ListarCursos(BEProfesor pT)
         {
-            return lis
+            return dALProfesor.ListarCursos(pT);
         }
 
         public void Modificar(BEProfesor pT)
         {
-            throw new NotImplementedException();
+            dALProfesor.Modificar(pT);
         }
     }
 }

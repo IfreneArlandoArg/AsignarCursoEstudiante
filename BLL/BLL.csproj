@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BLLCurso.cs" />
     <Compile Include="BLLEstudiante.cs" />
+    <Compile Include="BLLProfesor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

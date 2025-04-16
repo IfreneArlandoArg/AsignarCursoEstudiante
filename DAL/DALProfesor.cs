@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using BE;
 using System.Data;
-using System.Data.SqlClient;
+
 
 namespace DAL
 {
@@ -94,7 +94,27 @@ namespace DAL
 
         public List<BECurso> ListarCursos(BEProfesor pT)
         {
-            
+            List<BECurso> lstTemp = new List<BECurso>();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("LISTAR_PROFESOR_CURSOS", conn);
+
+                conn.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    lstTemp.Add(new BECurso(reader["IDCURSO"].ToString(), reader["TITULO"].ToString(), reader["DESCRIPCION"].ToString()) );
+                }
+
+            }
+
+
+
+            return lstTemp;
+
         }
 
 
