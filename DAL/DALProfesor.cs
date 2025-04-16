@@ -47,6 +47,7 @@ namespace DAL
             }
         }
 
+        //Baja lógica
         public void Baja(BEProfesor pT)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -81,7 +82,8 @@ namespace DAL
                         reader["NOMBRE"].ToString(), 
                         reader["APELLIDO"].ToString(), 
                         reader["EMAIL"].ToString(), 
-                        reader["PASSWORD"].ToString() ));
+                        reader["PASSWORD"].ToString(),
+                        reader["ACTIVO"].ToString()));
                 }
 
             }
@@ -100,13 +102,15 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand("LISTAR_PROFESOR_CURSOS", conn);
 
+                cmd.Parameters.AddWithValue("@IdProfesor", pT.IdProfesor);
+
                 conn.Open();
 
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    lstTemp.Add(new BECurso(reader["IDCURSO"].ToString(), reader["TITULO"].ToString(), reader["DESCRIPCION"].ToString()) );
+                    lstTemp.Add(new BECurso(reader["IDCURSO"].ToString(), reader["TITULO"].ToString(), reader["DESCRIPCION"].ToString(), reader["ACTIVO"].ToString()) );
                 }
 
             }
@@ -130,6 +134,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@Apellido", pT.Apellido);
                 cmd.Parameters.AddWithValue("@Email", pT.Email);
                 cmd.Parameters.AddWithValue("@Password", pT.Password);
+                cmd.Parameters.AddWithValue("@Activo", pT.Activo);
 
                 conn.Open();
 

@@ -9,13 +9,14 @@ namespace BE
     {
         public int IdProfesor { get; set; }
 
-        public BEProfesor(string pIdProfesor,string pNombre, string pApellido, string pEmail, string pPassword) 
+        public BEProfesor(string pIdProfesor,string pNombre, string pApellido, string pEmail, string pPassword, string pActivo) 
         { 
             IdProfesor = int.Parse(pIdProfesor);
             Nombre = pNombre;
             Apellido = pApellido;
             Email = pEmail;
             Password = pPassword;
+            Activo = bool.Parse(pActivo);
         }
 
         public BEProfesor( string pNombre, string pApellido, string pEmail, string pPassword)
@@ -24,6 +25,7 @@ namespace BE
             Apellido = pApellido;
             Email = pEmail;
             Password = pPassword;
+            
         }
     }
 }

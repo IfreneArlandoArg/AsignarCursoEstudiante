@@ -18,7 +18,7 @@ namespace BLL
 
         public void Baja(BECurso pT)
         {
-            throw new NotImplementedException();
+            dalCurso.Baja(pT);
         }
 
         public List<BECurso> Listar()

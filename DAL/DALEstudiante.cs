@@ -50,6 +50,7 @@ namespace DAL
 
         }
 
+        //Baja Lógica...
         public void Baja(BEEstudiante pT)
         {
             throw new NotImplementedException();
@@ -71,7 +72,7 @@ namespace DAL
                 
                 while (reader.Read())
                 {
-                    lstTmp.Add(new BEEstudiante(reader["IDESTUDIANTE"].ToString(), reader["NOMBRE"].ToString(), reader["APELLIDO"].ToString(), reader["EMAIL"].ToString(), reader["PASSWORD"].ToString()));
+                    lstTmp.Add(new BEEstudiante(reader["IDESTUDIANTE"].ToString(), reader["NOMBRE"].ToString(), reader["APELLIDO"].ToString(), reader["EMAIL"].ToString(), reader["PASSWORD"].ToString(), reader["ACTIVO"].ToString()));
                 }
 
             }
@@ -97,7 +98,7 @@ namespace DAL
 
                 while (reader.Read())
                 {
-                    lstTmp.Add(new BECurso(reader["IDCURSO"].ToString(), reader["TITULO"].ToString(), reader["DESCRIPCION"].ToString()));
+                    lstTmp.Add(new BECurso(reader["IDCURSO"].ToString(), reader["TITULO"].ToString(), reader["DESCRIPCION"].ToString(), reader["ACTIVO"].ToString()));
                 }
 
             }

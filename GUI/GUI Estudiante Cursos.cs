@@ -80,6 +80,9 @@ namespace GUI
 
                 BECurso tmpCurso = dtgvCursosDisponibles.CurrentRow.DataBoundItem as BECurso;
 
+                if(!bLLEstudiante.Inscripto(EstudianteLogeado, tmpCurso))
+                    throw new Exception($"El estudiante {EstudianteLogeado.Apellido}, {EstudianteLogeado.Nombre} ya está inscrito en el curso : {tmpCurso.Titulo}");
+
                 bLLEstudiante.AltaCurso(EstudianteLogeado,tmpCurso);
                 mostrarDTGVCursosInscriptos(EstudianteLogeado);
 

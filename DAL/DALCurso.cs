@@ -16,6 +16,7 @@ namespace DAL
             throw new NotImplementedException();
         }
 
+        //Baja lógica
         public void Baja(BECurso pT)
         {
             throw new NotImplementedException();
@@ -36,7 +37,7 @@ namespace DAL
 
                 while (reader.Read()) 
                 {
-                    lstTmp.Add(new BECurso(reader["IDCURSO"].ToString(), reader["TITULO"].ToString(), reader["DESCRIPCION"].ToString()));
+                    lstTmp.Add(new BECurso(reader["IDCURSO"].ToString(), reader["TITULO"].ToString(), reader["DESCRIPCION"].ToString(), reader["ACTIVO"].ToString()));
                 }
 
             }

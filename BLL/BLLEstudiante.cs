@@ -21,11 +21,12 @@ namespace BLL
 
         public void AltaCurso(BEEstudiante pT, BECurso pC) 
         { 
+
            dalEstudiante.AltaCurso(pT, pC);
         }
         public void Baja(BEEstudiante pT)
         {
-            throw new NotImplementedException();
+            dalEstudiante.Baja(pT);
         }
 
         public List<BEEstudiante> Listar()
@@ -59,7 +60,19 @@ namespace BLL
             return registrado;
         }
 
+        public bool Inscripto(BEEstudiante pT, BECurso pC) 
+        { 
+           bool inscripto = false;
 
+            foreach (BECurso itemCurso in dalEstudiante.ListarCursos(pT))
+            {
+                if (itemCurso == pC)
+                 inscripto = true;
+            }
+
+            return inscripto;
+
+        }
 
 
 

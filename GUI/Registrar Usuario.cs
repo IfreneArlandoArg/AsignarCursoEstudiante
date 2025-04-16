@@ -50,5 +50,10 @@ namespace GUI
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void Registrar_Usuario_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

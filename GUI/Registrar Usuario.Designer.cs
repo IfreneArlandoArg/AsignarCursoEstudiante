@@ -129,6 +129,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Registrar_Usuario";
             this.Text = "Registrar_Usuario";
+            this.Load += new System.EventHandler(this.Registrar_Usuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
