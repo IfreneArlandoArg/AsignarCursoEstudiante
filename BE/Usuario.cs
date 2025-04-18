@@ -17,5 +17,7 @@ namespace BE
         public string Password { get; set; }
 
         public bool Activo { get; set; }
+
+        public int Id { get; set; }
     }
 }

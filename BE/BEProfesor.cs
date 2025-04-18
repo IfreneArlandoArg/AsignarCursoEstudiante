@@ -7,11 +7,11 @@ namespace BE
 {
     public class BEProfesor : Usuario
     {
-        public int IdProfesor { get; set; }
+        
 
         public BEProfesor(string pIdProfesor,string pNombre, string pApellido, string pEmail, string pPassword, string pActivo) 
         { 
-            IdProfesor = int.Parse(pIdProfesor);
+            Id = int.Parse(pIdProfesor);
             Nombre = pNombre;
             Apellido = pApellido;
             Email = pEmail;

@@ -22,7 +22,7 @@ namespace GUI
         BLLCurso bllcurso = new BLLCurso();
         BLLEstudiante bLLEstudiante  = new BLLEstudiante();
 
-        public BEEstudiante EstudianteLogeado { get; set; }
+        
 
         void mostrarDTGV(DataGridView dtgv, object pO) 
         { 
@@ -46,22 +46,22 @@ namespace GUI
                 Login frm = new Login();
                 frm.ShowDialog();
 
-
-                if (!frm.EstudianteRegistrado) 
-                { 
-                    MessageBox.Show("¡Sessión No inicida!");
+                if (!LoginSession.Instancia.EstaLogueado())
+                {
+                    MessageBox.Show("¡Sesión no iniciada!");
                     this.Close();
+                    return;
                 }
 
-                EstudianteLogeado = frm.EstudianteLogeado;
+                BEEstudiante estudianteLogeado = LoginSession.Instancia.UsuarioActual as BEEstudiante;
 
-                MessageBox.Show($"¡Bienvenido {EstudianteLogeado.Apellido}, {EstudianteLogeado.Nombre}!");
+                MessageBox.Show($"¡Bienvenido {estudianteLogeado.Apellido}, {estudianteLogeado.Nombre}!");
+                lblEstudianteLogeado.Text = $"Sesión : {estudianteLogeado.Apellido}, {estudianteLogeado.Nombre}";
 
-                lblEstudianteLogeado.Text = $"Sessión : {EstudianteLogeado.Apellido}, {EstudianteLogeado.Nombre}";
-
-                mostrarDTGVCursosInscriptos(EstudianteLogeado);
+                mostrarDTGVCursosInscriptos(estudianteLogeado);
                 mostrarDTGVCursosDisponibles();
-                
+
+
 
             }
             catch (Exception ex)
@@ -75,16 +75,18 @@ namespace GUI
         {
             try
             {
+                var estudiante = LoginSession.Instancia.UsuarioActual as BEEstudiante;
+
                 if (dtgvCursosDisponibles.SelectedRows.Count == 0)
                     throw new Exception("¡Para inscribirse, seleccioné uno de los cursos disponibles!");
 
                 BECurso tmpCurso = dtgvCursosDisponibles.CurrentRow.DataBoundItem as BECurso;
 
-                if(!bLLEstudiante.Inscripto(EstudianteLogeado, tmpCurso))
-                    throw new Exception($"El estudiante {EstudianteLogeado.Apellido}, {EstudianteLogeado.Nombre} ya está inscrito en el curso : {tmpCurso.Titulo}");
+                if(!bLLEstudiante.Inscripto(estudiante, tmpCurso))
+                    throw new Exception($"El estudiante {estudiante.Apellido}, {estudiante.Nombre} ya está inscrito en el curso : {tmpCurso.Titulo}");
 
-                bLLEstudiante.AltaCurso(EstudianteLogeado,tmpCurso);
-                mostrarDTGVCursosInscriptos(EstudianteLogeado);
+                bLLEstudiante.AltaCurso(estudiante,tmpCurso);
+                mostrarDTGVCursosInscriptos(estudiante);
 
             }
             catch (Exception ex)
@@ -98,7 +100,12 @@ namespace GUI
         {
             try
             {
+                LoginSession.Instancia.Logout(); 
+                MessageBox.Show("Sesión cerrada.");
+                
+
                 this.Close();
+
             }
             catch (Exception ex)
             {

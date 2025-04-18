@@ -40,7 +40,7 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand("ALTA_ESTUDIANTE_Curso", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add(new SqlParameter("@IDESTUDIANTE", pT.IdEstudiante));
+                cmd.Parameters.Add(new SqlParameter("@IDESTUDIANTE", pT.Id));
                 cmd.Parameters.Add(new SqlParameter("@IDCURSO", pC.IdCurso));
 
                 conn.Open();
@@ -89,7 +89,7 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand("Listar_Cursos_Estudiante", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add(new SqlParameter("@IDESTUDIANTE", pT.IdEstudiante));
+                cmd.Parameters.Add(new SqlParameter("@IDESTUDIANTE", pT.Id));
                 
 
                 conn.Open();

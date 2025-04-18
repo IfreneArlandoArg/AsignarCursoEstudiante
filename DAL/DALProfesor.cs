@@ -36,7 +36,7 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand("ALTA_PROFESOR_CURSO",conn);
 
-                cmd.Parameters.AddWithValue("@IdProfesor", pT.IdProfesor);
+                cmd.Parameters.AddWithValue("@IdProfesor", pT.Id);
                 cmd.Parameters.AddWithValue("@IdCurso", pC.IdCurso);
 
                 conn.Open();
@@ -54,7 +54,7 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand("BAJA_PROFESOR", conn);
 
-                cmd.Parameters.AddWithValue("@IdProfesor", pT.IdProfesor);
+                cmd.Parameters.AddWithValue("@IdProfesor", pT.Id);
                 
                 conn.Open();
 
@@ -102,7 +102,7 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand("LISTAR_PROFESOR_CURSOS", conn);
 
-                cmd.Parameters.AddWithValue("@IdProfesor", pT.IdProfesor);
+                cmd.Parameters.AddWithValue("@IdProfesor", pT.Id);
 
                 conn.Open();
 
@@ -128,7 +128,7 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand("MODIFICAR_PROFESOR", conn);
 
-                cmd.Parameters.AddWithValue("@IdProfesor", pT.IdProfesor);
+                cmd.Parameters.AddWithValue("@IdProfesor", pT.Id);
 
                 cmd.Parameters.AddWithValue("@Nombre", pT.Nombre);
                 cmd.Parameters.AddWithValue("@Apellido", pT.Apellido);

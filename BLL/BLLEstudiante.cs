@@ -11,7 +11,7 @@ namespace BLL
     public class BLLEstudiante : IABML<BEEstudiante>
     {
         DALEstudiante dalEstudiante =  new DALEstudiante();
-        public BEEstudiante EstudianteLogeado { get; set; }
+       
 
 
         public void Alta(BEEstudiante pT)
@@ -46,18 +46,15 @@ namespace BLL
 
         public bool Registrado(string pEmail, string pPassword)
         {
-            bool registrado = false;
-
-            foreach(BEEstudiante itemEstudiante in dalEstudiante.Listar()) 
+            foreach (BEEstudiante estudiante in dalEstudiante.Listar())
             {
-                if (itemEstudiante.Email == pEmail && itemEstudiante.Password == pPassword)
-                { 
-                    registrado = true; 
-                    EstudianteLogeado = itemEstudiante;
+                if (estudiante.Email == pEmail && estudiante.Password == pPassword)
+                {
+                    LoginSession.Instancia.Login(estudiante); 
+                    return true;
                 }
             }
-
-            return registrado;
+            return false;
         }
 
         public bool Inscripto(BEEstudiante pT, BECurso pC) 

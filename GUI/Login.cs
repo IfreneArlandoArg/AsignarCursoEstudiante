@@ -23,8 +23,7 @@ namespace GUI
 
 
         BLLEstudiante bllEstudiante = new BLLEstudiante();
-        public BEEstudiante EstudianteLogeado { get; set; }
-        public bool EstudianteRegistrado { get; set; }
+      
 
 
         private void chbUsuarioNoRegistrado_CheckedChanged(object sender, EventArgs e)
@@ -49,16 +48,12 @@ namespace GUI
                 if (txtPassword.Text == string.Empty)
                     throw new Exception("¡El campo Password tiene qué tener un valor!");
 
-                EstudianteRegistrado = bllEstudiante.Registrado(txtEmail.Text, txtPassword.Text);
+                bool Registrado = bllEstudiante.Registrado(txtEmail.Text, txtPassword.Text);
 
 
-                if (!EstudianteRegistrado)
+                if (!Registrado)
                     throw new Exception($"¡Usuario {txtEmail.Text}, no registrado!");
 
-                
-                
-
-                EstudianteLogeado = bllEstudiante.EstudianteLogeado;
 
 
                 this.Close();
@@ -109,6 +104,11 @@ namespace GUI
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Login_Load(object sender, EventArgs e)
         {
 
         }
