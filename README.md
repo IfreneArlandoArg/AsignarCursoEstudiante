@@ -8,5 +8,5 @@
 
 
 
-# Singleton Pattern for Login-LogOUT
-# N-Layered Architecture (Arquitectura en capas) => 4 capas.
+### Singleton Pattern for Login-LogOUT
+### N-Layered Architecture (Arquitectura en capas) => 4 capas.
