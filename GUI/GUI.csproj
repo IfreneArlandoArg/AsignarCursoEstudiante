@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GUI Estudiante Cursos.cs">
+    <Compile Include="Estudiante Cursos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI Estudiante Cursos.Designer.cs">
-      <DependentUpon>GUI Estudiante Cursos.cs</DependentUpon>
+    <Compile Include="Estudiante Cursos.Designer.cs">
+      <DependentUpon>Estudiante Cursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form de inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form de inicio.Designer.cs">
+      <DependentUpon>Form de inicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -66,8 +72,11 @@
     <Compile Include="Registrar Usuario.Designer.cs">
       <DependentUpon>Registrar Usuario.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="GUI Estudiante Cursos.resx">
-      <DependentUpon>GUI Estudiante Cursos.cs</DependentUpon>
+    <EmbeddedResource Include="Estudiante Cursos.resx">
+      <DependentUpon>Estudiante Cursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form de inicio.resx">
+      <DependentUpon>Form de inicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

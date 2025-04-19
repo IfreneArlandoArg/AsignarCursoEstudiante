@@ -16,7 +16,8 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Estudiante_Cursos());
+            //Application.Run(new Estudiante_Cursos());
+            Application.Run(new Form_de_inicio());
         }
     }
 }
