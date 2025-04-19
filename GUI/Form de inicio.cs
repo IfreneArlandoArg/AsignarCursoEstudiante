@@ -25,9 +25,63 @@ namespace GUI
             try
             {
                 if (LoginSession.Instancia.EstaLogueado())
+                {
                     throw new Exception($"El usuario {LoginSession.Instancia.UsuarioActual.Apellido}, {LoginSession.Instancia.UsuarioActual.Nombre} está conectado!\n¡Esperé qué se desconecté!");
+                }
+
+                Login frm = new Login();
+                frm.Perfil = estudianteToolStripMenuItem.Text;
+                frm.ShowDialog();
+
+                
+
+
+
+
                 Form frmstd = new Estudiante_Cursos();
-                frmstd.Show();
+                    frmstd.Show();
+                
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Form_de_inicio_Load(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void profesorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (LoginSession.Instancia.EstaLogueado())
+                {
+                    throw new Exception($"El usuario {LoginSession.Instancia.UsuarioActual.Apellido}, {LoginSession.Instancia.UsuarioActual.Nombre} está conectado!\n¡Esperé qué se desconecté!");
+                }
+
+                Login frm = new Login();
+                frm.Perfil = profesorToolStripMenuItem.Text;
+                frm.ShowDialog();
+
+
+
+
+
+
+                Form frmprof = new Profesor_Cursos();
+                frmprof.Show();
             }
             catch (Exception ex)
             {

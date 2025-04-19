@@ -19,10 +19,11 @@ namespace GUI
             InitializeComponent();
         }
 
-        
 
+        public string Perfil { get; set; }
 
         BLLEstudiante bllEstudiante = new BLLEstudiante();
+        BLLProfesor bLLProfesor = new BLLProfesor();
       
 
 
@@ -48,7 +49,14 @@ namespace GUI
                 if (txtPassword.Text == string.Empty)
                     throw new Exception("¡El campo Password tiene qué tener un valor!");
 
-                bool Registrado = bllEstudiante.Registrado(txtEmail.Text, txtPassword.Text);
+                bool Registrado = false;
+
+                if (Perfil == "Estudiante")
+                   Registrado = bllEstudiante.Registrado(txtEmail.Text, txtPassword.Text);
+
+                if (Perfil == "Profesor")
+                   Registrado = bLLProfesor.Registrado(txtEmail.Text, txtPassword.Text);
+
 
 
                 if (!Registrado)

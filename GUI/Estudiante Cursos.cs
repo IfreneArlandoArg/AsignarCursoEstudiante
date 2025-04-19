@@ -43,8 +43,8 @@ namespace GUI
         {
             try
             {
-                Login frm = new Login();
-                frm.ShowDialog();
+                //Login frm = new Login();
+                //frm.ShowDialog();
 
                 if (!LoginSession.Instancia.EstaLogueado())
                 {

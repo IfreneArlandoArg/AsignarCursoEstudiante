@@ -77,6 +77,7 @@
             this.profesorToolStripMenuItem.Name = "profesorToolStripMenuItem";
             this.profesorToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.profesorToolStripMenuItem.Text = "Profesor";
+            this.profesorToolStripMenuItem.Click += new System.EventHandler(this.profesorToolStripMenuItem_Click);
             // 
             // Form_de_inicio
             // 
@@ -87,6 +88,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form_de_inicio";
             this.Text = "Form_de_inicio";
+            this.Load += new System.EventHandler(this.Form_de_inicio_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);

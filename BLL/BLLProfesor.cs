@@ -41,5 +41,19 @@ namespace BLL
         {
             dALProfesor.Modificar(pT);
         }
+
+        public bool Registrado(string pEmail, string pPassword)
+        {
+            foreach (BEProfesor profesor in dALProfesor.Listar())
+            {
+                if (profesor.Email == pEmail && profesor.Password == pPassword)
+                {
+                    LoginSession.Instancia.Login(profesor);
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 }
