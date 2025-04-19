@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,6 +24,8 @@ namespace GUI
         {
             try
             {
+                if (LoginSession.Instancia.EstaLogueado())
+                    throw new Exception($"El usuario {LoginSession.Instancia.UsuarioActual.Apellido}, {LoginSession.Instancia.UsuarioActual.Nombre} está conectado!\n¡Esperé qué se desconecté!");
                 Form frmstd = new Estudiante_Cursos();
                 frmstd.Show();
             }
